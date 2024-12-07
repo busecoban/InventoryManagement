@@ -5,11 +5,13 @@ import InventoryList from "./components/InventoryList";
 import CategoryManager from "./components/CategoryManager";
 import ProductManager from "./components/ProductManager";
 import StockManager from "./components/StockManager";
-import { mockCategories, mockProducts } from "./mockData"; // Mock data import
+import backgroundImage from "./assets/bck.png";
+
+import { mockCategories, mockProducts } from "./mockData";
 
 function App() {
-  const [categories, setCategories] = useState(mockCategories); // Mock categories
-  const [products, setProducts] = useState(mockProducts); // Mock products
+  const [categories, setCategories] = useState(mockCategories);
+  const [products, setProducts] = useState(mockProducts);
 
   const handleAddCategory = (categoryName) => {
     if (
@@ -22,7 +24,7 @@ function App() {
     }
 
     const newCategory = { id: Date.now(), name: categoryName };
-    setCategories((prevCategories) => [...prevCategories, newCategory]); // Mock state güncellemesi
+    setCategories((prevCategories) => [...prevCategories, newCategory]);
   };
 
   const handleAddProduct = (productName, categoryId, stock) => {
@@ -36,7 +38,7 @@ function App() {
     }
 
     const newProduct = { id: Date.now(), name: productName, categoryId, stock };
-    setProducts((prevProducts) => [...prevProducts, newProduct]); // Mock state güncellemesi
+    setProducts((prevProducts) => [...prevProducts, newProduct]);
   };
 
   const handleUpdateStock = (productId, change) => {
@@ -56,7 +58,14 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        height: "100vh",
+      }}
+    >
       <Header />
       <Container maxWidth="lg">
         <Grid container spacing={3} sx={{ mt: 3 }}>

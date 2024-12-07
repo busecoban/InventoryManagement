@@ -7,6 +7,7 @@ import {
   MenuItem,
   Paper,
 } from "@mui/material";
+import "../styles/App.css"; // App.css dosyasını import et
 
 function StockManager({
   categories,
@@ -39,7 +40,7 @@ function StockManager({
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 3 }}>
+    <Paper elevation={3} className="stock-manager">
       <Typography variant="h6" gutterBottom>
         Manage Stock
       </Typography>
@@ -82,9 +83,10 @@ function StockManager({
         fullWidth
         sx={{ mb: 2 }}
       />
+      {/* Butonları özel sınıflarla stilize et */}
       <Button
         variant="contained"
-        color="primary"
+        className="increase-stock"
         fullWidth
         onClick={() => handleUpdate("increase")}
       >
@@ -92,7 +94,7 @@ function StockManager({
       </Button>
       <Button
         variant="outlined"
-        color="secondary"
+        className="decrease-stock"
         fullWidth
         sx={{ mt: 2 }}
         onClick={() => handleUpdate("decrease")}

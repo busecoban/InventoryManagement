@@ -7,6 +7,7 @@ import {
   MenuItem,
   Paper,
 } from "@mui/material";
+import "../styles/App.css"; // App.css dosyasını import et
 
 function ProductManager({ categories, onAddProduct }) {
   const [productName, setProductName] = useState("");
@@ -25,8 +26,8 @@ function ProductManager({ categories, onAddProduct }) {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 3, mb: 2 }}>
-      <Typography variant="h6" gutterBottom>
+    <Paper elevation={3} className="product-manager">
+      <Typography variant="h6" className="product-manager-title" gutterBottom>
         Add a Product
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -64,7 +65,13 @@ function ProductManager({ categories, onAddProduct }) {
           sx={{ mb: 2 }}
         />
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          className="product-manager-button"
+        >
           Add Product
         </Button>
       </form>

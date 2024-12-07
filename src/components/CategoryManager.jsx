@@ -11,8 +11,8 @@ function CategoryManager({ onAddCategory }) {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 3, mb: 2 }}>
-      <Typography variant="h6" gutterBottom>
+    <Paper elevation={3} className="category-manager">
+      <Typography variant="h6" className="category-manager-title">
         Add a Category
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -24,7 +24,13 @@ function CategoryManager({ onAddCategory }) {
           required
           sx={{ mb: 2 }}
         />
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          className="category-manager-button"
+        >
           Add Category
         </Button>
       </form>

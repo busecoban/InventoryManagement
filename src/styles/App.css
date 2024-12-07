@@ -1,82 +1,166 @@
+/* App.css */
+
+/* Tüm yazı tipi için Roboto fontu */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif; /* Tüm metinler için aynı yazı tipi */
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  background-color: #f5f5dc; /* Krem arka plan rengi */
 }
 
-header {
-  background: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+/* Header için krem rengi arka plan */
+.MuiAppBar-root {
+  background-color: #e7d6c4 !important; /* Krem rengi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+  padding: 16px 20px; /* Header içindeki padding */
 }
 
-nav {
-  background: #555;
-  padding: 15px;
+/* Header içindeki yazı rengi ve ortalanmış yazı */
+.MuiTypography-root {
+  color: #333; /* Başlık rengi */
+  font-weight: bold; /* Kalın yazı */
+  font-size: 2rem; /* Yazı boyutu */
+  text-align: center; /* Ortalanmış yazı */
+  text-transform: uppercase; /* Büyük harf kullanımı */
+  letter-spacing: 2px; /* Harfler arası boşluk */
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 15px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-main {
+/* CategoryManager için stil */
+.category-manager {
   padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5dc; /* Krem rengi */
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
 }
 
-h2,
-h3 {
+.category-manager-title {
+  font-size: 1.5rem;
+  color: #333; /* Başlık rengi */
+  font-weight: bold; /* Kalın yazı */
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
+}
+
+.category-manager input {
+  margin-bottom: 16px; /* Input ile buton arasına boşluk */
+}
+
+/* Buton için krem rengi */
+.category-manager button {
+  background-color: #e7d6c4; /* Krem rengi */
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.category-manager button:hover {
+  background-color: #d8b69b; /* Buton hover rengi */
+}
+
+/* ProductManager formu için stil */
+.product-manager {
+  padding: 20px;
+  background-color: #f5f5dc; /* Krem rengi */
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+  margin-bottom: 20px; /* Form ile diğer içerikler arasında boşluk */
+}
+
+.product-manager-title {
+  font-size: 1.5rem;
   color: #333;
+  font-weight: bold; /* Kalın yazı */
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.product-manager input,
+.product-manager select {
+  margin-bottom: 16px; /* Input ile buton arasına boşluk */
+}
+
+/* Buton için krem rengi */
+.product-manager button {
+  background-color: #e7d6c4; /* Krem rengi */
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.product-manager button:hover {
+  background-color: #d8b69b; /* Buton hover rengi */
+}
+
+/* Inventory List için stil */
+.inventory-list {
+  padding: 20px;
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
   margin-bottom: 20px;
 }
 
-table th,
-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.inventory-list h2 {
+  font-size: 1.8rem;
+  color: #333; /* Başlık rengi */
+  font-weight: bold; /* Kalın yazı */
+  margin-bottom: 20px;
 }
 
-table th {
-  background: #333;
-  color: white;
+.inventory-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-button {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-right: 5px;
+.inventory-list li {
+  margin-bottom: 10px;
 }
 
-button:hover {
-  background: #555;
+.inventory-list li .MuiListItemText-root {
+  font-size: 1.1rem;
 }
 
-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+.inventory-list .MuiListItem-root {
+  padding-left: 0;
+}
+
+/* StockManager butonları için minimal renkler */
+.stock-manager .MuiButton-root {
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Increase Stock Butonu için Açık Mavi Renk */
+.stock-manager .increase-stock {
+  background-color: #90bacf; /* Açık mavi */
+  color: black; /* Siyah yazı rengi */
+}
+
+.stock-manager .increase-stock:hover {
+  background-color: #5bb3e8; /* Hover için daha koyu mavi */
+}
+
+/* Decrease Stock Butonu için Krem Renk */
+.stock-manager .decrease-stock {
+  background-color: #f3af77; /* Krem rengi */
+  color: black; /* Siyah yazı rengi */
+}
+
+.stock-manager .decrease-stock:hover {
+  background-color: #e2e2b3; /* Hover rengi için daha koyu krem */
+}
+
+/* Delete Product butonu kırmızı */
+.stock-manager .delete-product {
+  color: #e53935; /* Kırmızı yazı rengi */
+  border-color: #e53935; /* Kırmızı border */
+}
+
+.stock-manager .delete-product:hover {
+  background-color: #f8d7da; /* Hover kırmızı arka plan */
 }

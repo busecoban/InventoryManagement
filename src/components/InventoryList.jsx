@@ -1,9 +1,10 @@
 import React from "react";
 import { List, ListItem, ListItemText } from "@mui/material";
+import "../styles/App.css"; // App.css dosyasını import et
 
 function InventoryList({ categories, products }) {
   return (
-    <div>
+    <div className="inventory-list">
       <h2>Inventory</h2>
       <List>
         {categories.map((category) => (
