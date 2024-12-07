@@ -6,29 +6,24 @@ function InventoryList({ categories, products }) {
   return (
     <div className="inventory-list">
       <h2>Inventory</h2>
-      <List>
-        {categories.map((category) => (
-          <div key={category.id}>
-            <ListItem>
-              <ListItemText primary={category.name} />
-            </ListItem>
+      {categories.map((category) => (
+        <div key={category.id}>
+          {/* Kategori Başlıkları */}
+          <div className="category">{category.name}</div>
 
-            {/* Kategoriye ait ürünler */}
-            <List component="div" disablePadding>
-              {products
-                .filter((product) => product.categoryId === category.id) // Kategoriye ait ürünleri filtreliyoruz
-                .map((product) => (
-                  <ListItem key={product.id} sx={{ pl: 4 }}>
-                    <ListItemText
-                      primary={product.name}
-                      secondary={`Stock: ${product.stock}`}
-                    />
-                  </ListItem>
-                ))}
-            </List>
+          {/* Ürünler */}
+          <div className="products">
+            {products
+              .filter((product) => product.categoryId === category.id) // Kategoriye ait ürünleri filtreliyoruz
+              .map((product) => (
+                <div key={product.id} className="product">
+                  <span>{product.name}</span>
+                  <span className="stock">Stock: {product.stock}</span>
+                </div>
+              ))}
           </div>
-        ))}
-      </List>
+        </div>
+      ))}
     </div>
   );
 }

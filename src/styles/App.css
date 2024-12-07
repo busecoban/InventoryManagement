@@ -8,14 +8,14 @@ body {
   background-color: #f5f5dc; /* Krem arka plan rengi */
 }
 
-/* Header için krem rengi arka plan */
+/* Header için krem rengi arka plan ve ortalanmış yazı */
 .MuiAppBar-root {
   background-color: #e7d6c4 !important; /* Krem rengi */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
   padding: 16px 20px; /* Header içindeki padding */
 }
 
-/* Header içindeki yazı rengi ve ortalanmış yazı */
+/* Header içindeki yazı rengi, ortalanmış yazı ve bold */
 .MuiTypography-root {
   color: #333; /* Başlık rengi */
   font-weight: bold; /* Kalın yazı */
@@ -34,20 +34,22 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
 }
 
+/* Category Manager başlıkları bold */
 .category-manager-title {
   font-size: 1.5rem;
-  color: #333; /* Başlık rengi */
+  color: #333;
   font-weight: bold; /* Kalın yazı */
   margin-bottom: 16px; /* Başlık ile form arasına boşluk */
 }
 
+/* CategoryManager input ve butonlar */
 .category-manager input {
   margin-bottom: 16px; /* Input ile buton arasına boşluk */
 }
 
-/* Buton için krem rengi */
+/* Buton için krem rengi ve hover efektleri */
 .category-manager button {
-  background-color: #e7d6c4; /* Krem rengi */
+  background-color: #e7d6c4;
   color: black;
   font-weight: bold;
   padding: 10px;
@@ -68,10 +70,11 @@ body {
   margin-bottom: 20px; /* Form ile diğer içerikler arasında boşluk */
 }
 
+/* Product Manager başlıkları bold */
 .product-manager-title {
   font-size: 1.5rem;
   color: #333;
-  font-weight: bold; /* Kalın yazı */
+  font-weight: bold;
   margin-bottom: 16px; /* Başlık ile form arasına boşluk */
 }
 
@@ -80,7 +83,7 @@ body {
   margin-bottom: 16px; /* Input ile buton arasına boşluk */
 }
 
-/* Buton için krem rengi */
+/* ProductManager butonları */
 .product-manager button {
   background-color: #e7d6c4; /* Krem rengi */
   color: black;
@@ -94,37 +97,34 @@ body {
   background-color: #d8b69b; /* Buton hover rengi */
 }
 
-/* Inventory List için stil */
-.inventory-list {
-  padding: 20px;
-  border-radius: 8px; /* Yuvarlatılmış köşeler */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
-  margin-bottom: 20px;
+/* Kategori başlıklarının siyah olması */
+.inventory-list .category {
+  font-size: 1.2rem; /* Kategori başlık font boyutunu küçültme */
+  font-weight: bold;
+  color: #000000; /* Siyah yazı rengi */
+  background-color: #e7d6c4; /* Krem rengi arka plan */
+  padding: 8px; /* Kategorinin iç boşluğunu küçültme */
+  border-radius: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.inventory-list h2 {
-  font-size: 1.8rem;
-  color: #333; /* Başlık rengi */
-  font-weight: bold; /* Kalın yazı */
-  margin-bottom: 20px;
+/* Kategori altındaki ürünlerin stilini ayarlama */
+.inventory-list .product {
+  font-size: 1rem; /* Ürünler için font boyutunu küçültme */
+  color: #5a4e43;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.inventory-list ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.inventory-list li {
-  margin-bottom: 10px;
-}
-
-.inventory-list li .MuiListItemText-root {
-  font-size: 1.1rem;
-}
-
-.inventory-list .MuiListItem-root {
-  padding-left: 0;
+/* Ürün ve stok bilgileri arasındaki mesafeyi ayarlama */
+.inventory-list .stock {
+  font-size: 0.9rem;
+  color: #8c7f70;
+  font-weight: bold;
 }
 
 /* StockManager butonları için minimal renkler */
@@ -157,10 +157,49 @@ body {
 
 /* Delete Product butonu kırmızı */
 .stock-manager .delete-product {
-  color: #e53935; /* Kırmızı yazı rengi */
-  border-color: #e53935; /* Kırmızı border */
+  background-color: #e53935;
+  color: white;
+  border-color: #e53935;
 }
 
 .stock-manager .delete-product:hover {
   background-color: #f8d7da; /* Hover kırmızı arka plan */
+}
+
+/* Add Category, Add Product ve Manage Stock başlıkları bold yapılacak */
+.category-manager-title,
+.product-manager-title,
+.stock-manager h6 {
+  font-weight: bold; /* Başlıkları kalın yap */
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
+}
+
+/* Eğer başka başlıklar varsa, bunlar için de aynı stil geçerli olacak */
+.MuiTypography-root {
+  font-weight: bold;
+}
+/* CategoryManager başlığı */
+.category-manager-title {
+  font-weight: bold; /* Başlıkları kalın yap */
+  font-size: 1.5rem; /* Yazı boyutu */
+  color: #333; /* Başlık rengi */
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
+}
+
+/* ProductManager başlığı */
+.product-manager-title {
+  font-weight: bold; /* Başlıkları kalın yap */
+  font-size: 1.5rem; /* Yazı boyutu */
+  color: #333; /* Başlık rengi */
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
+}
+
+/* Manage Stock başlığı */
+.stock-manager h6 {
+  font-weight: bold; /* Başlıkları kalın yap */
+  font-size: 1.5rem; /* Yazı boyutu */
+  color: #333; /* Başlık rengi */
+  margin-bottom: 16px; /* Başlık ile form arasına boşluk */
 }

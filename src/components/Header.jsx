@@ -4,11 +4,12 @@ import "../styles/App.css"; // CSS dosyasını import et
 
 function Header() {
   return (
-    <AppBar position="static" className="header">
-      {" "}
-      {/* className ile stil veriyoruz */}
+    <AppBar position="static" sx={{ backgroundColor: "#E7D6C4" }}>
       <Toolbar>
-        <Typography variant="h5" component="div" className="header-title">
+        <Typography
+          variant="h5"
+          sx={{ flexGrow: 1, textAlign: "center", fontWeight: "bold" }}
+        >
           Inventory Management System
         </Typography>
       </Toolbar>
