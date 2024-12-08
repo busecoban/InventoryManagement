@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Grid, Paper, Typography } from "@mui/material";
+import { Container, Grid, Paper, Snackbar, Alert } from "@mui/material";
 import Header from "./components/Header";
 import InventoryList from "./components/InventoryList";
 import CategoryManager from "./components/CategoryManager";
@@ -12,6 +12,8 @@ import { mockCategories, mockProducts } from "./mockData";
 function App() {
   const [categories, setCategories] = useState(mockCategories);
   const [products, setProducts] = useState(mockProducts);
+  const [alerts, setAlerts] = useState([]); // Store alerts here
+  const [alertOpen, setAlertOpen] = useState(false); // Control alert visibility
 
   const handleAddCategory = (categoryName) => {
     if (
@@ -43,11 +45,30 @@ function App() {
 
   const handleUpdateStock = (productId, change) => {
     setProducts((prevProducts) =>
-      prevProducts.map((product) =>
-        product.id === productId
-          ? { ...product, stock: product.stock + change }
-          : product
-      )
+      prevProducts.map((product) => {
+        if (product.id === productId) {
+          const oldStock = product.stock;
+          const newStock = product.stock + change;
+
+          // Check for low stock
+          if (newStock <= 5 && oldStock > 5) {
+            // Low stock alert
+            setAlerts((prevAlerts) => [
+              ...prevAlerts,
+              `${product.name} has only ${newStock} items left!`,
+            ]);
+            setAlertOpen(true);
+          }
+
+          // Stock update alert
+          setAlerts((prevAlerts) => [
+            ...prevAlerts,
+            `${product.name} stock changed from ${oldStock} to ${newStock}`,
+          ]);
+          return { ...product, stock: newStock };
+        }
+        return product;
+      })
     );
   };
 
@@ -55,6 +76,12 @@ function App() {
     setProducts((prevProducts) =>
       prevProducts.filter((product) => product.id !== productId)
     );
+  };
+
+  // Close the alert Snackbar
+  const closeAlert = () => {
+    setAlertOpen(false);
+    setAlerts([]);
   };
 
   return (
@@ -69,14 +96,14 @@ function App() {
       <Header />
       <Container maxWidth="lg">
         <Grid container spacing={3} sx={{ mt: 3 }}>
-          {/* Sol taraf: Envanter Listesi */}
+          {/* Left Side: Inventory List */}
           <Grid item xs={12} md={4}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <InventoryList categories={categories} products={products} />
             </Paper>
           </Grid>
 
-          {/* Orta taraf: Kategori ve Ürün Ekleme */}
+          {/* Middle Side: Category and Product Management */}
           <Grid item xs={12} md={4}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <CategoryManager onAddCategory={handleAddCategory} />
@@ -87,7 +114,7 @@ function App() {
             </Paper>
           </Grid>
 
-          {/* Sağ taraf: Stok Yönetimi */}
+          {/* Right Side: Stock Management */}
           <Grid item xs={12} md={4}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <StockManager
@@ -100,6 +127,18 @@ function App() {
           </Grid>
         </Grid>
       </Container>
+
+      {/* Snackbar for Alerts */}
+      <Snackbar
+        open={alertOpen}
+        onClose={closeAlert}
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert onClose={closeAlert} severity="info" sx={{ width: "100%" }}>
+          {alerts[alerts.length - 1]} {/* Show the last alert */}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
